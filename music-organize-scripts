@@ -1,0 +1,71 @@
+/*******************************
+ * Standard Script
+ *******************************/
+$if2(%albumartist%,%artist%)/
+
+$if2(
+	$if($in(%releasetype%,live),Live Albums),
+	$if($in(%releasetype%,demo),Demos),
+	$if($in(%releasetype%,compilation),Compilations),
+	$if($in(%releasetype%,soundtrack),Soundtracks),
+	$if($eq(%releasetype%,album),Albums),
+	$if($eq(%releasetype%,ep),EPs),
+	$if($eq(%releasetype%,single),Singles))/
+
+$if2($left(%originaldate%,4),$left(%date%,4)) - %album%/
+
+$if($gt(%totaldiscs%,1),Disc $num(%discnumber%,2))/
+
+$num(%tracknumber%,2) - %title%
+
+/*******************************
+ * Extended Date Saving
+ *******************************/
+$if2(%albumartist%,%artist%)/
+
+$if2(
+	$if($in(%releasetype%,live),Live Albums),
+	$if($in(%releasetype%,demo),Demos),
+	$if($in(%releasetype%,compilation),Compilations),
+	$if($in(%releasetype%,soundtrack),Soundtracks),
+	$if($eq(%releasetype%,album),Albums),
+	$if($eq(%releasetype%,ep),EPs),
+	$if($eq(%releasetype%,single),Singles))/
+
+$if2(%originaldate%,%date%) - %album%/
+
+$if($gt(%totaldiscs%,1),Disc $num(%discnumber%,2))/
+
+$num(%tracknumber%,2) - %title%
+
+/*******************************
+ * Standard With Release Info
+ *******************************/
+$if2(%albumartist%,%artist%)/
+
+$if2(
+	$if($in(%releasetype%,live),Live Albums),
+	$if($in(%releasetype%,demo),Demos),
+	$if($in(%releasetype%,compilation),Compilations),
+	$if($in(%releasetype%,soundtrack),Soundtracks),
+	$if($eq(%releasetype%,album),Albums),
+	$if($eq(%releasetype%,ep),EPs),
+	$if($eq(%releasetype%,single),Singles))/
+
+$if2($left(%originaldate%,4),$left(%date%,4)) - %album% [%media%, $left(%date%,4) %label% %releasecountry%, %catalognumber%]/
+
+$if($gt(%totaldiscs%,1),Disc $num(%discnumber%,2))/
+
+$num(%tracknumber%,2) - %title%
+
+/*******************************
+ * Mobile
+ *******************************/
+$if2(%albumartist%,%artist%)/
+$if2($left(%originaldate%,4),$left(%date%,4)) - %album%/
+$if($gt(%totaldiscs%,1),Disc $num(%discnumber%,2))/
+$num(%tracknumber%,2) - %title%
+
+
+
+
